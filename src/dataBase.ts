@@ -1,3 +1,5 @@
-import { IUserData } from './interfaces'
+import { IDataBase } from './interfaces'
 
-export const dataBase: IUserData[] = []
+export const dataBase: IDataBase = {
+    base: [],
+}

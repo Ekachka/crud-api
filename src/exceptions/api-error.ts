@@ -1,7 +1,4 @@
-interface IApiError {
-    status: number
-    message: string
-}
+import { IApiError } from '../interfaces'
 
 export class ApiError extends Error implements IApiError {
     status
@@ -11,7 +8,7 @@ export class ApiError extends Error implements IApiError {
         this.status = status
     }
 
-    static BadRequestField (message: string) {
+    static BadRequestField(message: string) {
         return new ApiError(400, message)
     }
 

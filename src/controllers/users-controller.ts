@@ -1,12 +1,13 @@
 import { getAllUsers } from '../service/user-service'
 import { ServerResponse, IncomingMessage } from 'http'
+import { setErrorResponse } from '../halpers/setErrorResponse'
+import { setResponse } from '../halpers/setResponse'
 
 export const getUsers = async (req: IncomingMessage, res: ServerResponse) => {
     try {
         const users = await getAllUsers()
-        res.writeHead(200, { 'Content-Type': 'application/json' })
-        res.end(JSON.stringify(users))
+        if (users) setResponse(200, res, users)
     } catch (error) {
-        console.log(error)
+        setErrorResponse(error, res)
     }
 }

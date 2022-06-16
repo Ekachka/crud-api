@@ -1,8 +1,7 @@
 import { dataBase } from '../dataBase'
-import { IUserData } from '../interfaces'
 
-export const getAllUsers = (): Promise<IUserData[]> => {
+export const getAllUsers = () => {
     return new Promise((resolve, _) => {
-        resolve(dataBase)
+        resolve(dataBase.base)
     })
 }
